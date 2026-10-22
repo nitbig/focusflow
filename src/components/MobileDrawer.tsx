@@ -8,13 +8,12 @@ import {
   Settings,
   Plus,
   RotateCcw,
-  Sun,
-  Moon,
   Volume2,
   VolumeX,
   X,
   Sparkles,
 } from 'lucide-react';
+import { FocusflowBrand } from './FocusflowLogo';
 
 export const MobileDrawer: React.FC = () => {
   const {
@@ -22,7 +21,6 @@ export const MobileDrawer: React.FC = () => {
     setActiveTab,
     openTaskModal,
     data,
-    toggleTheme,
     resetToDemo,
     toggleSoundEnabled,
     isMobileMenuOpen,
@@ -91,20 +89,7 @@ export const MobileDrawer: React.FC = () => {
         <div className="p-6">
           {/* Header & Close */}
           <div className="flex items-center justify-between pb-4 border-b border-[var(--line)]">
-            <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-[var(--forest)] flex items-center justify-center text-[var(--surface)] relative shadow-xs">
-                <span className="font-bold text-xs tracking-tighter">FF</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--lime)] absolute -top-0.5 -right-0.5 ring-2 ring-[var(--surface)]" />
-              </div>
-              <div>
-                <div className="text-base font-bold tracking-tight text-[var(--ink)] leading-none">
-                  FocusFlow
-                </div>
-                <div className="text-[11px] text-[var(--muted)] mt-1 font-medium">
-                  Adaptive Day Planner
-                </div>
-              </div>
-            </div>
+            <FocusflowBrand onClick={() => handleNavClick('overview')} />
 
             <button
               onClick={() => setIsMobileMenuOpen(false)}
@@ -189,18 +174,10 @@ export const MobileDrawer: React.FC = () => {
 
           <div className="flex items-center justify-between pt-1 px-1">
             <div className="flex items-center gap-1.5">
-              <button
-                onClick={toggleTheme}
-                className="p-2 text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--surface-strong)] rounded-lg transition-colors"
-                title={data.preferences.theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
-                aria-label="Toggle theme"
-              >
-                {data.preferences.theme === 'light' ? (
-                  <Moon className="w-4 h-4" />
-                ) : (
-                  <Sun className="w-4 h-4 text-[var(--lime)]" />
-                )}
-              </button>
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-medium bg-[var(--surface-strong)] text-[var(--ink-soft)] border border-[var(--line)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--lime)]" />
+                <span>Dark Flow</span>
+              </span>
 
               <button
                 onClick={toggleSoundEnabled}

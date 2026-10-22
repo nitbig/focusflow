@@ -104,14 +104,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     };
   }, [data]);
 
-  // Sync theme class to document
+  // Sync dark mode class to document
   useEffect(() => {
-    if (data.preferences.theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [data.preferences.theme]);
+    document.documentElement.classList.add('dark');
+  }, []);
 
   // Sync ambient sound
   useEffect(() => {

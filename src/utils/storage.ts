@@ -237,7 +237,7 @@ export function getInitialSeedData(): FocusFlowData {
   };
 
   const defaultPreferences: UserPreferences = {
-    theme: 'light',
+    theme: 'dark',
     defaultTimerPreset: 25,
     soundEnabled: true,
     ambientSound: 'none',
@@ -352,6 +352,7 @@ export function loadStoredData(): FocusFlowData {
       preferences: {
         ...defaultData.preferences,
         ...(parsed.preferences || {}),
+        theme: 'dark',
       },
     };
   } catch {

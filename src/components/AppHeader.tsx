@@ -11,24 +11,16 @@ import {
   VolumeX,
 } from 'lucide-react';
 
+import { FocusflowLogo } from './FocusflowLogo';
+
 export const AppHeader: React.FC = () => {
   const {
-    activeTab,
     openTaskModal,
     data,
     isMobileMenuOpen,
     setIsMobileMenuOpen,
-    toggleTheme,
     toggleSoundEnabled,
   } = useApp();
-
-  const titles: Record<string, string> = {
-    overview: 'Overview',
-    planner: 'Planner',
-    focus: 'Focus Session',
-    insights: 'Insights',
-    settings: 'Settings',
-  };
 
   const today = new Date();
   const dateStr = today.toLocaleDateString('en-US', {
@@ -53,10 +45,7 @@ export const AppHeader: React.FC = () => {
 
         {/* Small Brand Logo on mobile when sidebar rail is hidden */}
         <div className="lg:hidden flex items-center gap-2">
-          <div className="w-6 h-6 rounded-md bg-[var(--forest)] flex items-center justify-center text-[var(--surface)] relative shadow-xs">
-            <span className="font-bold text-[10px] tracking-tighter">FF</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--lime)] absolute -top-0.5 -right-0.5 ring-1 ring-[var(--surface)]" />
-          </div>
+          <FocusflowLogo className="w-6 h-6" />
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
@@ -73,30 +62,16 @@ export const AppHeader: React.FC = () => {
         </div>
       </div>
 
-      {/* Right zone: Status Budget + Theme/Audio Quick Utilities + Action */}
+      {/* Right zone: Status Budget + Chime quick utility + Action */}
       <div className="flex items-center gap-2 sm:gap-3">
         {/* Available Budget Pill */}
         <div className="hidden md:flex items-center gap-1.5 text-xs text-[var(--ink-soft)] px-2.5 py-1 rounded-md bg-[var(--surface-soft)] border border-[var(--line)]">
-          <Sparkles className="w-3.5 h-3.5 text-[var(--forest)] dark:text-[var(--lime)]" />
+          <Sparkles className="w-3.5 h-3.5 text-[var(--lime)]" />
           <span className="font-mono tabular-nums font-semibold text-[var(--ink)]">
             {data.checkIn.availableMinutes}m
           </span>
           <span>budget</span>
         </div>
-
-        {/* Quick theme toggle */}
-        <button
-          onClick={toggleTheme}
-          aria-label="Toggle theme"
-          className="p-2 text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--surface-soft)] rounded-lg transition-colors"
-          title={data.preferences.theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
-        >
-          {data.preferences.theme === 'light' ? (
-            <Moon className="w-4 h-4" />
-          ) : (
-            <Sun className="w-4 h-4 text-[var(--lime)]" />
-          )}
-        </button>
 
         {/* Quick chime sound toggle */}
         <button

@@ -10,11 +10,6 @@ import {
   Plus,
   ArrowLeft,
   ChevronDown,
-  ChevronUp,
-  AlertCircle,
-  Music,
-  ExternalLink,
-  Headphones,
 } from 'lucide-react';
 
 export const FocusView: React.FC = () => {
@@ -34,7 +29,6 @@ export const FocusView: React.FC = () => {
   } = useApp();
 
   const [isEndEarlyModalOpen, setIsEndEarlyModalOpen] = useState(false);
-  const [showMusicPlayer, setShowMusicPlayer] = useState(true);
 
   const timer = data.activeTimer;
   const isRunning = timer.status === 'running';
@@ -317,80 +311,7 @@ export const FocusView: React.FC = () => {
         </button>
       </div>
 
-      {/* Focus Music: Embedded YouTube Soundtrack & Credit */}
-      <div className="bg-[var(--surface)] border border-[var(--line)] rounded-2xl p-4 space-y-3.5 shadow-xs transition-all">
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5 min-w-0">
-            <div className="w-8 h-8 rounded-xl bg-[var(--forest)]/10 dark:bg-[var(--lime)]/15 flex items-center justify-center text-[var(--forest)] dark:text-[var(--lime)] shrink-0">
-              <Headphones className="w-4 h-4" />
-            </div>
-            <div className="min-w-0">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold text-[var(--ink)] truncate">Focus Soundtrack</span>
-                <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-[var(--lime)]/30 text-[var(--forest)] dark:text-[var(--lime)] shrink-0">
-                  Ambient
-                </span>
-              </div>
-              <p className="text-[11px] text-[var(--muted)] truncate">
-                Continuous 3-hour deep work & background music
-              </p>
-            </div>
-          </div>
 
-          <button
-            onClick={() => setShowMusicPlayer((prev) => !prev)}
-            className="flex items-center gap-1.5 text-xs text-[var(--muted)] hover:text-[var(--ink)] transition-colors px-2.5 py-1 rounded-lg border border-[var(--line)] hover:bg-[var(--surface-strong)] shrink-0"
-            aria-label={showMusicPlayer ? 'Collapse player' : 'Expand player'}
-          >
-            <span>{showMusicPlayer ? 'Collapse' : 'Show Player'}</span>
-            {showMusicPlayer ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-          </button>
-        </div>
-
-        {showMusicPlayer && (
-          <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black/10 border border-[var(--line)] shadow-inner">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube-nocookie.com/embed/UtWaBEn_x8c?list=PLbeATXoWD4c-fEHymmr7tPPuDqIDIjEx8"
-              title="Atmospheric Ambient Music | Music For Work, Background Music 3 Hours"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
-        )}
-
-        {/* Music Attribution & Links */}
-        <div className="pt-2 border-t border-[var(--line)] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] text-[var(--muted)]">
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <span>Music by</span>
-            <a
-              href="https://www.youtube.com/@BLUME_Music"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-[var(--forest)] dark:text-[var(--lime)] hover:underline inline-flex items-center gap-0.5"
-            >
-              BLUME
-              <ExternalLink className="w-2.5 h-2.5 inline" />
-            </a>
-            <span className="text-[var(--line)]">|</span>
-            <span className="truncate max-w-[200px] sm:max-w-[260px] text-[var(--ink)]" title="Atmospheric Ambient Music | Music For Work">
-              Atmospheric Ambient Music
-            </span>
-          </div>
-
-          <a
-            href="https://www.youtube.com/watch?v=UtWaBEn_x8c&list=PLbeATXoWD4c-fEHymmr7tPPuDqIDIjEx8&index=17"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-[var(--forest)] dark:text-[var(--lime)] hover:underline font-medium shrink-0"
-          >
-            <Music className="w-3 h-3" />
-            <span>Open Playlist on YouTube</span>
-            <ExternalLink className="w-2.5 h-2.5" />
-          </a>
-        </div>
-      </div>
 
       {/* Confirmation: End early */}
       {isEndEarlyModalOpen && (
