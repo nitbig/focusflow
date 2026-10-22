@@ -1,5 +1,4 @@
-# FocusFlow — Product Brief
-
+# FocusFlow : Product Brief
 > **Product promise:** Know what to focus on next, at a pace that fits your actual energy and time.
 
 ## 1. Product definition
