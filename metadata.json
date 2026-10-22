@@ -1,0 +1,6 @@
+{
+  "name": "FocusFlow",
+  "description": "A calm, adaptive daily-planning workspace to know what to focus on next at a pace that fits your actual energy and time.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

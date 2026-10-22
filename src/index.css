@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+
+:root {
+  --canvas: #F6F7F1;          /* warm paper app background */
+  --surface: #FFFFFF;         /* primary card and modal surface */
+  --surface-soft: #EEF1E8;     /* secondary/selected background */
+  --surface-strong: #E4E9DE;   /* hover / quiet contrast */
+  --ink: #1D281F;              /* main text */
+  --ink-soft: #465347;          /* secondary text */
+  --muted: #758074;             /* tertiary text; check contrast */
+  --line: #E0E6DB;              /* borders and dividers */
+  --forest: #315A43;            /* primary action */
+  --forest-hover: #254733;      /* primary hover */
+  --lime: #D9F36A;              /* restrained signature accent */
+  --lime-ink: #24331C;          /* readable text over lime */
+  --coral-soft: #F6DFD5;        /* occasional warmth; never dominant */
+  --success: #2E6B4B;
+  --warning: #8A5A16;
+  --danger: #A33D36;
+  --focus-ring: #5D8B68;
+}
+
+.dark {
+  --canvas: #151A16;          /* deep warm botanical slate */
+  --surface: #1D251F;         /* deep muted surface */
+  --surface-soft: #242E26;     /* secondary background */
+  --surface-strong: #2D3930;   /* quiet contrast */
+  --ink: #F0F4ED;              /* crisp main text */
+  --ink-soft: #B8C4B5;          /* readable secondary text */
+  --muted: #81907F;             /* tertiary text */
+  --line: #2A362D;              /* subtle line divider */
+  --forest: #437A5C;            /* vibrant deep forest */
+  --forest-hover: #52926F;      /* hover state */
+  --lime: #D9F36A;              /* signature lime */
+  --lime-ink: #151F10;          /* dark ink on lime */
+  --coral-soft: #382823;
+  --success: #438D64;
+  --warning: #C48E38;
+  --danger: #D15F57;
+  --focus-ring: #75AB83;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--canvas);
+  color: var(--ink);
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+/* Accessible focus ring */
+*:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar for clean calm aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
